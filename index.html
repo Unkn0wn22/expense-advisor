@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f766e"><link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg"><title>AI Smart Expense Advisor</title>
+<link rel="stylesheet" href="styles.css"></head><body>
+<header><h1>Expense Advisor</h1><span id="modelStatus" class="pill">model…</span></header>
+<main>
+<section id="tab-add" class="tab">
+ <div class="card"><h2>Add expense</h2>
+  <label>Description<input id="desc" placeholder="e.g. bought rice and cooking oil" autocomplete="off"></label>
+  <button id="btnPredict" class="ghost">🤖 Suggest category</button>
+  <div id="predBox" class="note"></div>
+  <label>Category<select id="cat"></select></label>
+  <div class="row"><label>Amount<input id="amount" type="number" inputmode="decimal" min="0" step="any"></label>
+  <label>Currency<select id="cur"></select></label></div>
+  <label>Date<input id="date" type="date"></label>
+  <button id="btnSave">Save expense</button><div id="msg" class="note"></div></div></section>
+<section id="tab-dash" class="tab" hidden><div id="dash"></div></section>
+<section id="tab-hist" class="tab" hidden><div class="card"><h2>History</h2><div id="hist"></div></div></section>
+<section id="tab-bud" class="tab" hidden>
+ <div class="card"><h2>Set monthly budget</h2>
+  <div class="row"><label>Category<select id="bCat"></select></label><label>Currency<select id="bCur"></select></label></div>
+  <label>Limit per month<input id="bLim" type="number" inputmode="decimal" min="0" step="any"></label>
+  <button id="btnBud">Save budget</button></div>
+ <div class="card"><h2>This month</h2><div id="budList"></div></div></section>
+<section id="tab-set" class="tab" hidden>
+ <div class="card"><h2>Backup</h2><button id="btnCsv">Export CSV</button>
+  <p class="note">Everything is stored only on this phone. Export regularly: clearing Chrome data deletes it.</p></div>
+ <div class="card"><h2>AI model</h2><p id="modelInfo" class="note"></p>
+  <p class="note">The model has 62.5% test accuracy, so always check the suggested category.</p></div>
+ <div class="card"><h2>Danger zone</h2><button id="btnWipe" class="danger">Delete all data</button></div></section>
+</main>
+<nav id="nav"><button data-t="add" class="on">➕<small>Add</small></button><button data-t="dash">📊<small>Home</small></button><button data-t="hist">🧾<small>History</small></button><button data-t="bud">🎯<small>Budget</small></button><button data-t="set">⚙️<small>More</small></button></nav>
+<script src="model.js"></script><script src="app.js"></script></body></html>
