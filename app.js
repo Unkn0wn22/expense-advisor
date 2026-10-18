@@ -1,7 +1,7 @@
 const CATS = ['education','entertainment','food','health','housing','shopping','transport','utilities'];
 const CURS = ['TZS','USD','KES','EUR','GBP','UGX','NGN','ZAR','INR','JPY','CAD','AUD','CNY'];
 const $ = id => document.getElementById(id);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
 const load = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) { return d; } };
 let expenses = load('ea_expenses', []), budgets = load('ea_budgets', []), editId = null, model = null;
 const save = () => { localStorage.setItem('ea_expenses', JSON.stringify(expenses)); localStorage.setItem('ea_budgets', JSON.stringify(budgets)); };
